@@ -1,0 +1,448 @@
+body {
+    background-color: #b3b3b3;
+    margin: 0;
+    color: white;
+    font-family: -apple-system;
+
+}
+
+
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.weather {
+    width: 100px;
+    font-size: 22px;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+}
+.temps {
+    position: absolute;
+    width: 97%;
+    height: 29%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.tempsNum {
+    font-size: 13px;
+    margin-top: 7px;
+}
+.thermometer {
+    position: absolute;
+    z-index: 1;
+    left: 97.7%;
+    top: 8%;
+    overflow: hidden;
+    width: 13px;
+    height: 170px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 20px;
+    margin: 9px 25px 0 0;
+}
+.white-circle {
+    z-index: -1;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 97.35%;
+    top: 28.5%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin: -7 19.1 0 0;
+}
+
+.thermometerInside {
+    position: absolute;
+    left: 20%;
+    top: 28.5%;
+    width: 7px;
+    height: 170px;
+    border-radius: 20px;
+    margin-right: 0;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+/* animation: up 5s; */
+/* @keyframes up{
+    0%{
+        height: 198px;
+    }
+    100%{
+        height: 0px;
+    }
+} */
+.red-water {
+    position: absolute;
+    background: red;
+    margin-left: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 43%;
+    transform-origin: 50% 48%;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+/*.thermometerInside:hover .red-water {
+    margin-bottom: -30px;
+    animation: rotate 2000ms infinite linear;
+  } 물 차오르는 애니;
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+  }*/
+.red-circle {
+    position: absolute;
+    left: 97.65%;
+    top: 29.2%;
+    background-color: rgba(255, 0, 0);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.menu_icon {
+    display: block;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 10;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+@keyframes icon-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes icon-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.menu_icon_line{
+    width: 45px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.menuContainerShowing{
+    display: flex;
+}
+.menu_container {
+    position: absolute;
+    top: 30px;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    top: 20%;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.281);
+    animation: menu-container 0.5s;
+}
+@keyframes list {
+    from {
+        left: -300px;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes menu-container-show {
+    from {
+        left: -300px;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes menu-container-hide {
+    from {
+        left: 0;
+    }
+    to {
+        left: -300px;
+    }
+}
+
+.menu_container a:nth-child(3) {
+    animation: list 1.5s;
+}
+.menu_container a:nth-child(4) {
+    animation: list 2s;
+}
+.menu_container a:nth-child(5) {
+    animation: list 2.5s;
+}
+.menu_container a:nth-child(6) {
+    animation: list 3s;
+}
+.menu_delete_btn{
+    position: relative;
+    align-self: flex-end;
+    left: -15px;
+    top: -10px;
+    animation: menu-btn 3s;
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+    transform: rotate(0.6turn);
+}
+.menu_delete_btn2{
+    position: relative;
+    align-self: flex-end;
+    left: -15px;
+    top: -69px;
+    animation: menu-btn 3s;
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+    transform: rotate(0.4turn);
+
+}
+
+@keyframes remove-icon {
+    from {
+        left: 0;
+    }
+    to {
+        left: -300px;
+    }
+}
+@keyframes menu-btn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.top_menu_item {
+    position: relative;
+    top: -60px;
+    text-align: center;
+    transition: all 0.5s;
+    padding: 10px 70px;
+    display: block;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.top_menu_item:hover {
+    color: black;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.795);
+    opacity: 50%;
+}
+h1 {
+    margin: 0;
+}
+.clock {
+    text-align: center;
+    font-size: 55px;
+    width: 500px;
+    margin: 180px auto 0;
+}
+.greetings {
+    font-size: 35px;
+    width: 100%;
+    margin: 0 auto;
+}
+.name_form {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+.name_input {
+    background: none;
+    font-size: 30px;
+    color: white;
+    border: none;
+
+}
+.todo_input {
+    background: none;
+    font-size: 30px;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border: none;
+}
+
+.todo_form {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+ul {
+    padding: 0;
+}
+.todo_list {
+    font-weight: bold;
+    font-size: 25px;
+    width: 400px;
+    height: 290px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.todo_list > li {
+    border-bottom: white solid 1.5px;
+}
+button {
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+.name_input::placeholder,
+.todo_input::placeholder {
+    color: white;
+    font-weight: bold;
+}
+.greetings {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.showing {
+    display: block;
+}
+.quote_section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.quote_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.quote_text {
+    color: white;
+    text-align: center;
+}
+.quote_Author {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bg_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    animation: fadeIn 1s linear;
+}
+@media screen and (max-width: 1024px){
+    .menu_container {
+        display: none;
+    }
+    .menu_icon{
+        display: block;
+    }
+}
+/*
+  @media screen and (min-width:360px) and (max-width:480px){
+  body{
+    margin: 0;
+  }
+  
+  .bgImage{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+  .weather{
+    width: 50px;
+    font-size: 15px;
+    text-align: right;
+  }
+  .clock{
+    font-size: 32px;
+    width: 300px;
+    margin: 0 auto;
+  
+  }
+  
+  h1{
+    margin: 0 0 0 0;
+  }
+  .name_form{
+    width: 200px;
+    margin: 0 auto;
+  }
+  .name_input{
+    background: none;
+    font-size: 20px;
+    color : white;
+    border: none;
+    width: 200px;
+    text-align: center;
+  }
+  .todo_input{
+    background: none;
+    font-size: 23px;
+    color : white;
+    width: 200px;
+    text-align: center;
+    border: none;
+    }
+  
+  .todo_form{
+    margin: 0 auto;
+    width: 200px;
+  }
+  
+  .greetings{
+    font-size: 23px;
+    width: 250px;
+    margin: 0 auto;
+  
+  }
+  .toDoList{
+    font-weight: bold;
+    font-size: 15px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  button{
+    background: none;
+    border: none;
+    font-size: 15px;
+  }
+  }
+  */
